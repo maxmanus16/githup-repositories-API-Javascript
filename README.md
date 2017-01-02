@@ -1,11 +1,16 @@
 githup-repositories-API-Javascript - Hakkında
 ====================
 
-Github API kullanılarak güncel repositories bilgileri alınması için hazırlandı. Bootstrap yardımıyla biraz geliştirdim. Dileyen geliştiriciler alıp kendileri daha da geliştirmeye devam edebilirler.
+Github API kullanılarak güncel repositories bilgileri alınması için hazırlandı. Bootstrap yardımıyla biraz geliştirdim. Responsive ve ajax kategorileme sistemi eklendi. Dileyen geliştiriciler alıp kendileri daha da geliştirmeye devam edebilirler.
 
-Şuan stabil bir şekilde, tüm repo bilgilerini detaylı biçimde çekmektedir. Hangi bilgileri döndürdüğünü <a href="https://api.github.com/users/maxmanus16/repos">https://api.github.com/users/maxmanus16/repos</a> adresinden inceleyebilirsiniz.
+Şuan stabil bir şekilde, tüm repo bilgilerini detaylı biçimde çekmektedir. Hangi bilgileri döndürdüğünü <a href="https://api.github.com/users/maxmanus16/repos" target="_blank">https://api.github.com/users/maxmanus16/repos</a> adresinden inceleyebilirsiniz.
 
 Kullanımı da oldukça basit, aşağıdan inceleyebilirsiniz.
+
+Ekran Görüntüsü - Demo
+====================
+
+<a href="http://fatihsoysal.com/lab/" target="_blank"><img src="http://i.hizliresim.com/77aQzY.png"></a>
 
 Detaylı Bilgi
 ====================
