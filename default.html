@@ -1,0 +1,93 @@
+<!--
+ * githup-repositories-API-Javascript
+ *
+ * @author  Fatih Soysal
+ * @web     http://www.fatihsoysal.com
+ * @mail    fatihsoysal@outlook.com
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Fatih Soysal">
+    <title>githup-repositories-API-Javascript</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+
+		<section class="content">
+			<h1>githup-repositories-API-Javascript</h1>
+			<div class="col-md-8 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="pull-right">
+							<div class="btn-group">
+								<button type="button" class="btn btn-success btn-filter" data-target="PHP">PHP</button>
+								<button type="button" class="btn btn-warning btn-filter" data-target="Java">JAVA-android</button>
+								<button type="button" class="btn btn-danger btn-filter" data-target="HTML">HTML5</button>
+								<button type="button" class="btn btn-default btn-filter" data-target="all">Tümü</button>
+							</div>
+						</div>
+						<div class="table-container">
+							<table class="table table-filter" id="repo_list">
+
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="content-footer">
+					<p>
+						<script>document.write(new Date().getFullYear())</script> <br>
+						Developed by <a href="https://www.fatihsoysal.com" target="_blank">Fatih Soysal</a>
+					</p>
+				</div>
+			</div>
+		</section>
+		
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+
+    $('.btn-filter').on('click', function () {
+      var $target = $(this).data('target');
+      if ($target != 'all') {
+        $('.table tr').css('display', 'none');
+        $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
+      } else {
+        $('.table tr').css('display', 'none').fadeIn('slow');
+      }
+    });
+
+ });
+</script>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "https://api.github.com/users/maxmanus16/repos",
+        dataType: "json",
+        success: function(result) {
+            for( i in result ) {
+                $("#repo_list").append(
+                    
+                    "<tr data-status='" + result[i].language + "'><td><div class='ckbox'></div></td><td><a href='javascript:;'' class='star'><i class='glyphicon glyphicon-star'></i></a></td><td><div class='media'><a href='#' class='pull-left'><img src='https://avatars1.githubusercontent.com/u/6567319?v=3&s=460' class='media-photo'></a><div class='media-body'><span class='media-meta pull-right'>" + result[i].created_at + "</span><a href='" + result[i].html_url + "' target='_blank'><h4 class='title'>" + result[i].name + "<span class='pull-right pagado'>(" + result[i].language + ")</span></a></h4><p class='summary'>" + result[i].description + "</p></div></div></td></tr>"
+                );
+                console.log("i: " + i);
+            }
+            console.log(result);
+            $("#repo_count").append("Total Repos: " + result.length);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
